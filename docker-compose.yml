@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  qwen_app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      # GPU support with NVIDIA Container Toolkit
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
