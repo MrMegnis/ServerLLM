@@ -1,3 +1,6 @@
+# Use CPU-only PyTorch builds
+--extra-index-url https://download.pytorch.org/whl/cpu
 flask
 transformers
+# CPU-only torch
 torch
